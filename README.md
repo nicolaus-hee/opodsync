@@ -51,7 +51,9 @@ If you want to allow more accounts, you'll have to configure the server (see "Co
 
 ### Docker
 
-There is an unofficial [Docker image available](https://hub.docker.com/r/ganeshlab/opodsync). Please report any Docker issue [there](https://github.com/ganeshlab/opodsync).
+Download `Dockerfile` and `docker-compose-yml`, then run `docker compose up -d` and continue at `http://localhost:8080`. User data will be persisted in `./data` subfolder.
+
+~~There is an unofficial [Docker image available](https://hub.docker.com/r/ganeshlab/opodsync). Please report any Docker issue [there](https://github.com/ganeshlab/opodsync).~~
 
 If this image stops being maintained, see [Docker Hub](https://hub.docker.com/search?q=opodsync) to find other community distribution for Docker.
 
