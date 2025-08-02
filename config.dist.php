@@ -137,3 +137,14 @@ const ERRORS_REPORT_URL = null;
  * Default: null (= disabled)
  * @var string|null
  */
+
+ /**
+ * REQUIRE_CAPTCHA_AT_LOGIN
+ * true = Force captcha at login
+ * false = Login possible without captcha test
+ *
+ * Default: true
+ * @var bool
+ */
+
+const REQUIRE_CAPTCHA_AT_LOGIN = true;

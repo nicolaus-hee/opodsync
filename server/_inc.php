@@ -39,6 +39,7 @@ $defaults = [
 	'ERRORS_REPORT_URL'            => null,
 	'TITLE'                        => 'My oPodSync server',
 	'DEBUG_LOG'                    => null,
+	'REQUIRE_CAPTCHA_AT_LOGIN'     => true,
 ];
 
 foreach ($defaults as $const => $value) {

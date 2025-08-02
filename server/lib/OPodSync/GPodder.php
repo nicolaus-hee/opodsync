@@ -165,6 +165,11 @@ class GPodder
 		return sha1($captcha . __DIR__) === $check;
 	}
 
+	public function requireCaptchaAtLogin(): bool
+	{
+		return REQUIRE_CAPTCHA_AT_LOGIN;
+	}
+
 	public function countActiveSubscriptions(): int
 	{
 		$db = DB::getInstance();

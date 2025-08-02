@@ -11,10 +11,17 @@ if (isset($_GET['logout'])) {
 }
 
 $token = isset($_GET['token']) ? '?oktoken' : '';
-$error = $gpodder->login();
 
-if ($error) {
-    http_response_code(401);
+$error = null;
+if (!empty($_POST)) {
+	if ($gpodder->requireCaptchaAtLogin() && !$gpodder->checkCaptcha($_POST['captcha'] ?? '', $_POST['cc'] ?? '')) {
+		$error = 'Invalid captcha';
+	} else {
+		$error = $gpodder->login();	
+	}
+	if ($error) {
+		http_response_code(401);
+	}
 }
 
 if ($gpodder->isLogged()) {
@@ -24,5 +31,8 @@ if ($gpodder->isLogged()) {
 
 $token = isset($_GET['token']) ? true : false;
 
-$tpl->assign(compact('error', 'token'));
+$captcha = $gpodder->requireCaptchaAtLogin() ? $gpodder->generateCaptcha() : null;
+
+$tpl->assign(compact('error', 'token', 'captcha'));
 $tpl->display('login.tpl');
+?>
